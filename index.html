@@ -1,1 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Suman ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:Poppins,sans-serif;
+overflow-x:hidden;
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+url('./IMG_20260629_111004.jpg');
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+color:white;
+
+}
+
+
+/* Floating Hearts */
+
+@keyframes floatHeart{
+
+0%{
+transform:translateY(0);
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+
+}
+
+.heart{
+
+position:fixed;
+font-size:25px;
+animation:floatHeart 8s linear forwards;
+pointer-events:none;
+z-index:999;
+
+}
+
+
+
+/* Container */
+
+.container{
+
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:30px;
+
+}
+
+.card{
+
+max-width:950px;
+width:100%;
+padding:40px;
+border-radius:30px;
+text-align:center;
+
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(15px);
+
+box-shadow:
+0 0 20px rgba(255,255,255,.3);
+
+}
+
+
+/* Profile */
+
+.profile{
+
+width:220px;
+height:220px;
+border-radius:50%;
+object-fit:cover;
+border:7px solid white;
+
+box-shadow:
+0 0 25px white,
+0 0 50px hotpink;
+
+animation:glow 2s infinite alternate;
+
+}
+
+
+@keyframes glow{
+
+from{
+
+box-shadow:
+0 0 20px white;
+
+}
+
+to{
+
+box-shadow:
+0 0 25px hotpink,
+0 0 55px hotpink;
+
+}
+
+}
+
+
+/* Title */
+
+.title{
+
+font-family:'Dancing Script',cursive;
+font-size:5rem;
+margin-top:20px;
+
+text-shadow:
+0 0 15px white,
+0 0 40px hotpink;
+
+}
+
+
+.quote{
+
+margin-top:20px;
+font-size:1.2rem;
+line-height:1.8;
+
+}
+
+
+#countdown{
+
+margin-top:20px;
+font-size:25px;
+font-weight:bold;
+
+text-shadow:
+0 0 15px hotpink;
+
+}
+
+
+/* Buttons */
+
+.btn{
+
+padding:15px 30px;
+margin:15px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+font-size:16px;
+font-weight:bold;
+
+background:white;
+color:black;
+
+transition:.4s;
+
+}
+
+.btn:hover{
+
+transform:scale(1.1);
+box-shadow:0 0 20px hotpink;
+
+}
+
+
+/* Gallery */
+
+.gallery{
+
+padding:80px 30px;
+text-align:center;
+
+}
+
+
+.gallery h2{
+
+font-size:4rem;
+font-family:'Dancing Script',cursive;
+margin-bottom:20px;
+
+text-shadow:
+0 0 20px hotpink;
+
+}
+
+
+.gallery p{
+
+margin-bottom:40px;
+
+}
+
+
+.photo-gallery{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+max-width:1400px;
+margin:auto;
+
+}
+
+
+.photo-gallery img{
+
+width:100%;
+height:350px;
+object-fit:cover;
+
+border-radius:25px;
+cursor:pointer;
+
+transition:.4s;
+
+border:3px solid rgba(255,255,255,.5);
+
+box-shadow:
+0 0 20px rgba(255,255,255,.4);
+
+}
+
+
+.photo-gallery img:hover{
+
+transform:scale(1.05);
+
+box-shadow:
+0 0 35px hotpink;
+
+}
+
+
+
+/* Lightbox */
+
+.lightbox{
+
+display:none;
+position:fixed;
+inset:0;
+background:black;
+
+justify-content:center;
+align-items:center;
+
+z-index:99999;
+
+}
+
+.lightbox img{
+
+max-width:90%;
+max-height:90%;
+border-radius:20px;
+
+}
+
+.close{
+
+position:absolute;
+top:25px;
+right:40px;
+
+font-size:50px;
+cursor:pointer;
+
+}
+
+
+/* Popup */
+
+.popup{
+
+display:none;
+position:fixed;
+inset:0;
+
+background:rgba(0,0,0,.9);
+
+justify-content:center;
+align-items:center;
+
+z-index:9999;
+
+}
+
+.popup-box{
+
+background:white;
+color:black;
+
+padding:40px;
+border-radius:25px;
+
+width:90%;
+max-width:700px;
+
+line-height:1.8;
+text-align:center;
+
+}
+
+
+.music-player{
+
+position:fixed;
+bottom:20px;
+right:20px;
+
+padding:15px;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+
+display:flex;
+gap:15px;
+align-items:center;
+
+}
+
+.music-player img{
+
+width:70px;
+height:70px;
+border-radius:50%;
+
+animation:spin 8s linear infinite;
+animation-play-state:paused;
+
+}
+
+.music-player.playing img{
+
+animation-play-state:running;
+
+}
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+
+
+/* Footer */
+
+footer{
+
+padding:80px;
+text-align:center;
+font-size:25px;
+
+text-shadow:
+0 0 20px hotpink;
+
+}
+
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.title{
+
+font-size:3rem;
+
+}
+
+.profile{
+
+width:160px;
+height:160px;
+
+}
+
+.gallery h2{
+
+font-size:2.5rem;
+
+}
+
+}
+
+</style>
+</head>
+<body>
+
+
+
+<!-- HOME SECTION -->
+
+<div class="container">
+
+<div class="card">
+
+<img src="./IMG_20260629_111004.jpg" class="profile">
+
+<h1 class="title">
+Happy Birthday Suman ❤️
+</h1>
+
+<p class="quote">
+
+Somewhere among billions of stars,
+my favourite one was born.
+
+Thank you for making my life more beautiful.
+
+</p>
+
+
+<div id="countdown"></div>
+
+
+<br>
+
+<button class="btn" onclick="openWish()">
+💌 Open My Heart
+</button>
+
+<button class="btn" onclick="showLove()">
+❤️ Surprise
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- GALLERY -->
+
+<section class="gallery">
+
+<h2>Our Beautiful Memories ❤️</h2>
+
+<p>
+Every picture tells a story. Every memory is priceless.
+</p>
+
+<div class="photo-gallery">
+
+<img src="./IMG_20240630_101426.jpg" onclick="openImage(this.src)">
+<img src="./IMG_20240907_175220.jpg" onclick="openImage(this.src)">
+<img src="./IMG_20240907_175812.jpg" onclick="openImage(this.src)">
+<img src="./IMG_20241006_211654.jpg" onclick="openImage(this.src)">
+<img src="./IMG_20250809_224824.jpg" onclick="openImage(this.src)">
+<img src="./IMG_20250908_104301.jpg" onclick="openImage(this.src)">
+<img src="./IMG_20251004_160040.jpg" onclick="openImage(this.src)">
+<img src="./IMG_20260628_182512.jpg" onclick="openImage(this.src)">
+<img src="./IMG_20260629_111004.jpg" onclick="openImage(this.src)">
+
+</div>
+
+</section>
+
+
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox">
+
+<span class="close" onclick="closeImage()">
+×
+</span>
+
+<img id="lightbox-img">
+
+</div>
+
+
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+<div class="popup-box">
+
+<h2>Happy Birthday My Love ❤️</h2>
+
+<br>
+
+<p>
+
+Among billions of people in this world,
+I am grateful that life introduced me to you.
+
+You are my peace,
+my happiness,
+and my favourite person.
+
+Thank you for standing beside me.
+
+May God bless you with happiness,
+success, health and everything beautiful.
+
+You deserve all the love in this world.
+
+Happy Birthday Princess ❤️
+
+</p>
+
+<br>
+
+<button class="btn" onclick="closeWish()">
+Close
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- MUSIC PLAYER -->
+
+<div class="music-player" id="player">
+
+<img src="./IMG_20260629_111004.jpg">
+
+<div>
+
+<div>🎵 Happy Birthday</div>
+<small>For Suman ❤️</small>
+
+</div>
+
+<button onclick="toggleMusic()">
+▶️
+</button>
+
+</div>
+
+
+
+<audio id="music" loop>
+
+<source src="./the_mountain-happy-birthday-508020.mp3"
+type="audio/mpeg">
+
+</audio>
+
+
+
+
+<footer>
+
+Forever & Always ❤️
+
+<br><br>
+
+Made with Love by Priyesh
+
+</footer>
+
+
+
+<script>
+
+
+/* MUSIC */
+
+const music=document.getElementById("music");
+const player=document.getElementById("player");
+
+document.body.addEventListener("click",()=>{
+
+music.play();
+player.classList.add("playing");
+
+},{once:true});
+
+
+function toggleMusic(){
+
+if(music.paused){
+
+music.play();
+player.classList.add("playing");
+
+}else{
+
+music.pause();
+player.classList.remove("playing");
+
+}
+
+}
+
+
+/* COUNTDOWN */
+
+const birthday =
+new Date("July 20, 2026 00:00:00");
+
+
+setInterval(()=>{
+
+const now = new Date();
+
+const diff = birthday-now;
+
+const days =
+Math.floor(diff/(1000*60*60*24));
+
+const hrs =
+Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+
+const mins =
+Math.floor((diff%(1000*60*60))/60000);
+
+const sec =
+Math.floor((diff%(1000*60))/1000);
+
+
+document.getElementById("countdown").innerHTML=
+
+`${days} Days ${hrs} Hours ${mins} Minutes ${sec} Seconds`;
+
+},1000);
+
+
+
+/* GALLERY */
+
+function openImage(src){
+
+document.getElementById("lightbox").style.display="flex";
+
+document.getElementById("lightbox-img").src=src;
+
+}
+
+
+function closeImage(){
+
+document.getElementById("lightbox").style.display="none";
+
+}
+
+
+
+/* POPUP */
+
+function openWish(){
+
+document.getElementById("popup").style.display="flex";
+
+}
+
+
+function closeWish(){
+
+document.getElementById("popup").style.display="none";
+
+}
+
+
+
+/* SURPRISE */
+
+function showLove(){
+
+alert("I LOVE YOU SO MUCH SUMAN ❤️");
+
+}
+
+
+
+/* FLOATING HEARTS */
+
+setInterval(()=>{
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=["❤️","💕","💖","✨"][Math.floor(Math.random()*4)];
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.bottom="-20px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},8000);
+
+},300);
+
+
+</script>
+
+</body>
+</html>
