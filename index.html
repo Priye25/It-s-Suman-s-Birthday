@@ -4,15 +4,22 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Happy Birthday Suman ❤️</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap"
+rel="stylesheet">
 
 <style>
+
+/*-----------------------------------
+GLOBAL SETTINGS
+------------------------------------*/
 
 *{
 margin:0;
@@ -31,8 +38,8 @@ overflow-x:hidden;
 color:white;
 
 background:
-linear-gradient(rgba(0,0,0,.55),
-rgba(0,0,0,.55)),
+linear-gradient(rgba(0,0,0,.60),
+rgba(0,0,0,.60)),
 url('./IMG_20260629_111004.jpg');
 
 background-size:cover;
@@ -42,103 +49,78 @@ background-attachment:fixed;
 }
 
 
-/* ==========================
-SCROLL BAR
-========================== */
+/*-----------------------------------
+LOADING SCREEN
+------------------------------------*/
 
-::-webkit-scrollbar{
-
-width:8px;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:hotpink;
-border-radius:50px;
-
-}
-
-
-
-/* ==========================
-FLOATING HEARTS
-========================== */
-
-.heart{
+.loader{
 
 position:fixed;
-bottom:-30px;
-pointer-events:none;
-font-size:22px;
-z-index:999;
+top:0;
+left:0;
+width:100%;
+height:100%;
 
-animation:hearts 8s linear forwards;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+background:black;
+
+z-index:999999;
+
+transition:1s;
 
 }
 
-@keyframes hearts{
+
+.loader h1{
+
+font-family:'Dancing Script',
+cursive;
+
+font-size:3rem;
+
+animation:pulse 1.5s infinite;
+
+}
+
+
+.loader p{
+
+margin-top:15px;
+font-size:18px;
+
+}
+
+
+@keyframes pulse{
 
 0%{
 
-transform:translateY(0);
+opacity:.4;
+
+}
+
+50%{
+
 opacity:1;
 
 }
 
 100%{
 
-transform:translateY(-120vh);
-opacity:0;
+opacity:.4;
 
 }
 
 }
 
 
-
-/* ==========================
-ROSE PETALS
-========================== */
-
-.petal{
-
-position:fixed;
-top:-20px;
-font-size:25px;
-pointer-events:none;
-z-index:999;
-
-animation:petals 10s linear forwards;
-
-}
-
-
-@keyframes petals{
-
-0%{
-
-transform:
-translateY(-50px)
-rotate(0deg);
-
-}
-
-100%{
-
-transform:
-translateY(120vh)
-rotate(360deg);
-
-}
-
-}
-
-
-
-/* ==========================
+/*-----------------------------------
 HERO SECTION
-========================== */
+------------------------------------*/
 
 .hero{
 
@@ -155,13 +137,13 @@ padding:30px;
 
 .glass-card{
 
-max-width:1000px;
+max-width:900px;
 width:100%;
 
 padding:40px;
-border-radius:35px;
-
 text-align:center;
+
+border-radius:35px;
 
 background:
 rgba(255,255,255,.12);
@@ -169,15 +151,17 @@ rgba(255,255,255,.12);
 backdrop-filter:blur(18px);
 
 box-shadow:
-0 0 30px
+0 0 25px
 rgba(255,255,255,.25);
+
+animation:fadeUp 1.5s ease;
 
 }
 
 
-/* ==========================
+/*-----------------------------------
 PROFILE IMAGE
-========================== */
+------------------------------------*/
 
 .profile{
 
@@ -185,43 +169,35 @@ width:230px;
 height:230px;
 
 border-radius:50%;
+
 object-fit:cover;
 
-border:6px solid white;
+border:5px solid white;
 
 box-shadow:
-0 0 25px white,
+0 0 20px white,
 0 0 50px hotpink;
 
-animation:glow 2s infinite alternate;
+transition:.5s;
 
 }
 
 
-@keyframes glow{
+.profile:hover{
 
-from{
-
-box-shadow:
-0 0 20px white;
-
-}
-
-to{
+transform:scale(1.05);
 
 box-shadow:
-0 0 30px hotpink,
+0 0 25px hotpink,
 0 0 70px hotpink;
 
 }
 
-}
 
 
-
-/* ==========================
+/*-----------------------------------
 TITLE
-========================== */
+------------------------------------*/
 
 .title{
 
@@ -233,73 +209,73 @@ font-size:5rem;
 margin-top:20px;
 
 text-shadow:
-
-0 0 20px white,
-0 0 40px hotpink;
+0 0 15px white,
+0 0 30px hotpink;
 
 }
 
 
 .subtitle{
 
-margin-top:25px;
+margin-top:20px;
+
 line-height:1.9;
+
 font-size:1.1rem;
 
 }
 
 
-/* ==========================
+
+/*-----------------------------------
 COUNTDOWN
-========================== */
+------------------------------------*/
 
 #countdown{
 
 margin-top:30px;
 
-font-size:24px;
+font-size:25px;
 font-weight:bold;
 
-line-height:2;
-
 text-shadow:
-0 0 20px hotpink;
+0 0 15px hotpink;
+
+line-height:2;
 
 }
 
 
 
-/* ==========================
+/*-----------------------------------
 BUTTONS
-========================== */
+------------------------------------*/
 
 .btn{
 
-padding:15px 28px;
+padding:15px 30px;
 
 border:none;
 border-radius:50px;
 
-margin-top:15px;
-margin-right:10px;
-
 cursor:pointer;
+
+margin-top:20px;
 
 font-weight:bold;
 font-size:15px;
 
-transition:.4s;
-
 background:white;
 color:black;
+
+transition:.4s;
 
 }
 
 
 .btn:hover{
 
-transform:
-translateY(-5px);
+transform:translateY(-4px);
 
 box-shadow:
 0 0 20px hotpink;
@@ -308,13 +284,13 @@ box-shadow:
 
 
 
-/* ==========================
+/*-----------------------------------
 ROMANTIC SECTION
-========================== */
+------------------------------------*/
 
 .romantic{
 
-padding:80px 30px;
+padding:80px 25px;
 text-align:center;
 
 }
@@ -322,11 +298,10 @@ text-align:center;
 
 .romantic h2{
 
-font-size:4rem;
-
-font-family:
-'Dancing Script',
+font-family:'Dancing Script',
 cursive;
+
+font-size:4rem;
 
 margin-bottom:30px;
 
@@ -338,24 +313,25 @@ text-shadow:
 
 .romantic p{
 
-max-width:1000px;
+max-width:900px;
+
 margin:auto;
 
-font-size:1.1rem;
 line-height:2;
+font-size:1.1rem;
 
 }
 
 
 
-/* ==========================
+
+/*-----------------------------------
 PHOTO GALLERY
-========================== */
+------------------------------------*/
 
 .gallery{
 
 padding:80px 20px;
-
 text-align:center;
 
 }
@@ -363,38 +339,26 @@ text-align:center;
 
 .gallery h2{
 
-font-size:4rem;
-
-font-family:
-'Dancing Script',
+font-family:'Dancing Script',
 cursive;
+
+font-size:4rem;
 
 margin-bottom:50px;
 
-text-shadow:
-0 0 25px hotpink;
-
 }
 
 
+.timeline{
 
-.photo-gallery{
-
-display:grid;
-
-grid-template-columns:
-
-repeat(auto-fit,
-minmax(320px,1fr));
-
-gap:30px;
-
-max-width:1400px;
-
+max-width:900px;
 margin:auto;
 
-}
+display:flex;
+flex-direction:column;
+gap:30px;
 
+}
 
 
 .memory-card{
@@ -410,7 +374,7 @@ backdrop-filter:blur(15px);
 
 box-shadow:
 0 0 20px
-rgba(255,255,255,.2);
+rgba(255,255,255,.20);
 
 transition:.4s;
 
@@ -420,8 +384,7 @@ transition:.4s;
 .memory-card:hover{
 
 transform:
-translateY(-12px)
-scale(1.02);
+translateY(-10px);
 
 box-shadow:
 0 0 30px hotpink;
@@ -429,11 +392,10 @@ box-shadow:
 }
 
 
-
 .memory-card img{
 
 width:100%;
-height:380px;
+height:400px;
 
 object-fit:cover;
 
@@ -446,8 +408,7 @@ cursor:pointer;
 
 .memory-card h3{
 
-margin-top:18px;
-font-size:22px;
+margin-top:20px;
 
 }
 
@@ -462,9 +423,9 @@ line-height:1.8;
 
 
 
-/* ==========================
+/*-----------------------------------
 LIGHTBOX
-========================== */
+------------------------------------*/
 
 .lightbox{
 
@@ -496,9 +457,8 @@ border-radius:20px;
 .close{
 
 position:absolute;
-
-top:25px;
 right:30px;
+top:20px;
 
 font-size:50px;
 cursor:pointer;
@@ -507,64 +467,21 @@ cursor:pointer;
 
 
 
-
-/* ==========================
-POPUP
-========================== */
-
-.popup{
-
-display:none;
-
-position:fixed;
-inset:0;
-
-background:
-rgba(0,0,0,.92);
-
-justify-content:center;
-align-items:center;
-
-z-index:99999;
-
-}
-
-
-.popup-box{
-
-width:90%;
-max-width:650px;
-
-padding:35px;
-
-background:white;
-color:black;
-
-border-radius:30px;
-
-line-height:2;
-text-align:center;
-
-}
-
-
-
-
-/* ==========================
+/*-----------------------------------
 MUSIC PLAYER
-========================== */
+------------------------------------*/
 
 .music-player{
 
 position:fixed;
 
-left:15px;
-right:15px;
-bottom:15px;
+left:10px;
+right:10px;
+bottom:10px;
 
 display:flex;
-align-items:center;
 justify-content:space-between;
+align-items:center;
 
 padding:15px;
 
@@ -576,10 +493,6 @@ rgba(255,255,255,.15);
 backdrop-filter:blur(15px);
 
 z-index:9999;
-
-box-shadow:
-0 0 20px
-rgba(255,255,255,.25);
 
 }
 
@@ -608,8 +521,7 @@ animation-play-state:running;
 
 100%{
 
-transform:
-rotate(360deg);
+transform:rotate(360deg);
 
 }
 
@@ -617,20 +529,49 @@ rotate(360deg);
 
 
 
-/* ==========================
-MOBILE RESPONSIVE
-========================== */
+/*-----------------------------------
+ANIMATIONS
+------------------------------------*/
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+transform:translateY(50px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+
+
+
+/*-----------------------------------
+MOBILE FRIENDLY
+------------------------------------*/
 
 @media(max-width:768px){
-
 
 .title{
 
 font-size:3rem;
-line-height:1.2;
 
 }
 
+.profile{
+
+width:170px;
+height:170px;
+
+}
 
 .subtitle{
 
@@ -638,21 +579,11 @@ font-size:1rem;
 
 }
 
-
-.profile{
-
-width:180px;
-height:180px;
-
-}
-
-
 .glass-card{
 
 padding:25px;
 
 }
-
 
 .gallery h2,
 .romantic h2{
@@ -661,21 +592,17 @@ font-size:2.5rem;
 
 }
 
-
 .memory-card img{
 
 height:300px;
 
 }
 
-
 .btn{
 
 width:100%;
-margin-top:12px;
 
 }
-
 
 #countdown{
 
@@ -683,9 +610,7 @@ font-size:18px;
 
 }
 
-
 }
-
 
 </style>
 
@@ -693,6 +618,26 @@ font-size:18px;
 
 <body>
 
+
+
+<!-- LOADING SCREEN -->
+
+<div class="loader"
+id="loader">
+
+<h1>
+
+Loading Your Birthday Surprise ❤️
+
+</h1>
+
+<p>
+
+Please wait...
+
+</p>
+
+</div>
 
 
 
@@ -709,7 +654,8 @@ class="profile">
 
 <h1 class="title">
 
-Happy Birthday Suman ❤️
+Happy Birthday
+Suman ❤️
 
 </h1>
 
@@ -717,36 +663,28 @@ Happy Birthday Suman ❤️
 <p class="subtitle">
 
 Among billions of people in this world,
-my favourite one was born on 20th July.
+my favourite person was born on
+20th July.
 
-Thank you for making my life more beautiful.
-
-You are my peace, my happiness,
-and my favourite person.
+Thank you for making my life happier,
+brighter and more beautiful.
 
 </p>
 
 
-<div id="countdown"></div>
+<div id="countdown">
 
+Coming Soon...
 
-<br>
+</div>
+
 
 <button class="btn"
 onclick="openWish()">
 
-💌 Open My Heart
+Open My Heart ❤️
 
 </button>
-
-
-<button class="btn"
-onclick="showLove()">
-
-❤️ Birthday Surprise
-
-</button>
-
 
 </div>
 
@@ -755,7 +693,7 @@ onclick="showLove()">
 
 
 
-<!-- LOVE MESSAGE SECTION -->
+<!-- ROMANTIC MESSAGE -->
 
 <section class="romantic">
 
@@ -765,170 +703,92 @@ My Princess ❤️
 
 </h2>
 
+
 <p>
 
-Every day with you feels like a blessing.
+If I could ask life for one thing,
+it would be to see you smiling every
+single day.
 
-You are the smile I never want to lose,
-the happiness I always pray for,
-and the love I always wished for.
+Thank you for loving me,
+understanding me and making my life
+beautiful.
 
-If I could relive my life again,
-I would still choose you in every universe.
+Happy Birthday to the most amazing
+girl in my world.
 
-Happy Birthday to the most beautiful girl in my world.
-
-Forever & Always.
+Forever & Always ❤️
 
 </p>
 
 </section>
 
-   <!-- OUR BEAUTIFUL MEMORIES -->
+   <!-- OUR LOVE STORY -->
 
 <section class="gallery">
 
-<h2>Our Beautiful Memories ❤️</h2>
+<h2>Our Love Story ❤️</h2>
 
-<div class="photo-gallery">
-
+<div class="timeline">
 
 <div class="memory-card">
-
-<img src="./IMG_20240630_101426.jpg"
-onclick="openImage(this.src)">
-
-<h3>The Beginning</h3>
-
-<p>
-The day I realised that life feels better when you're smiling.
-</p>
-
+<img src="./IMG_20240630_101426.jpg" onclick="openImage(this.src)">
+<h3>Where It All Started</h3>
+<p>The day my world became a little more beautiful.</p>
 </div>
 
-
-
 <div class="memory-card">
-
-<img src="./IMG_20240907_175220.jpg"
-onclick="openImage(this.src)">
-
-<h3>My Favourite Smile</h3>
-
-<p>
-You don't even know how beautiful you look when you're happy.
-</p>
-
+<img src="./IMG_20240907_175220.jpg" onclick="openImage(this.src)">
+<h3>Your Smile</h3>
+<p>Your smile has always been my favourite place.</p>
 </div>
 
-
-
 <div class="memory-card">
-
-<img src="./IMG_20240907_175812.jpg"
-onclick="openImage(this.src)">
-
-<h3>Princess Vibes</h3>
-
-<p>
-Every picture of yours becomes my favourite picture.
-</p>
-
+<img src="./IMG_20240907_175812.jpg" onclick="openImage(this.src)">
+<h3>Princess Moments</h3>
+<p>You don't need a crown to be my princess.</p>
 </div>
 
-
-
 <div class="memory-card">
-
-<img src="./IMG_20241006_211654.jpg"
-onclick="openImage(this.src)">
-
-<h3>Pink Looks Beautiful</h3>
-
-<p>
-You look absolutely gorgeous in every colour, especially pink.
-</p>
-
+<img src="./IMG_20241006_211654.jpg" onclick="openImage(this.src)">
+<h3>Simply Beautiful</h3>
+<p>You make ordinary moments extraordinary.</p>
 </div>
 
-
-
 <div class="memory-card">
-
-<img src="./IMG_20250809_224824.jpg"
-onclick="openImage(this.src)">
-
-<h3>Your Happiness</h3>
-
-<p>
-Your happiness is my favourite destination.
-</p>
-
+<img src="./IMG_20250809_224824.jpg" onclick="openImage(this.src)">
+<h3>Forever Smiling</h3>
+<p>I hope life always gives you reasons to smile.</p>
 </div>
 
-
-
 <div class="memory-card">
-
-<img src="./IMG_20250908_104301.jpg"
-onclick="openImage(this.src)">
-
-<h3>A Beautiful Soul</h3>
-
-<p>
-The world becomes prettier whenever you smile.
-</p>
-
+<img src="./IMG_20250908_104301.jpg" onclick="openImage(this.src)">
+<h3>Beautiful Soul</h3>
+<p>Your heart is even more beautiful than your smile.</p>
 </div>
 
-
-
 <div class="memory-card">
-
-<img src="./IMG_20251004_160040.jpg"
-onclick="openImage(this.src)">
-
-<h3>My Sunshine</h3>
-
-<p>
-You light up my world without even trying.
-</p>
-
+<img src="./IMG_20251004_160040.jpg" onclick="openImage(this.src)">
+<h3>My Favourite Person</h3>
+<p>Thank you for being you.</p>
 </div>
 
-
-
 <div class="memory-card">
-
-<img src="./IMG_20260628_182512.jpg"
-onclick="openImage(this.src)">
-
+<img src="./IMG_20260628_182512.jpg" onclick="openImage(this.src)">
 <h3>Priceless Memories</h3>
-
-<p>
-Thank you for making my life full of beautiful memories.
-</p>
-
+<p>The best moments of my life are the ones spent with you.</p>
 </div>
 
-
-
 <div class="memory-card">
-
-<img src="./IMG_20260629_111004.jpg"
-onclick="openImage(this.src)">
-
+<img src="./IMG_20260629_111004.jpg" onclick="openImage(this.src)">
 <h3>Forever & Always</h3>
-
-<p>
-If I had one choice for the rest of my life, it would always be YOU.
-</p>
-
+<p>I choose you today, tomorrow and always.</p>
 </div>
 
 </div>
 
 </section>
+
 
 
 
@@ -942,17 +802,17 @@ If I had one choice for the rest of my life, it would always be YOU.
 
 Dear Suman,
 
-Thank you for being the reason behind so many of my smiles.
+On your special day, I just want you to know how grateful I am to have you in my life.
 
-Thank you for loving me, understanding me and accepting me for who I am.
+Thank you for your love, your kindness, your support and every little thing that makes you who you are.
 
-You have brought so much happiness into my life that words can never fully express.
+You have made my life happier than I could have ever imagined.
 
-I pray that God blesses you with good health, endless happiness, success and countless reasons to smile every single day.
+I pray that God blesses you with good health, happiness, success and endless smiles.
 
 May all your dreams come true.
 
-Happy Birthday to the most beautiful girl in my world.
+Happy Birthday, my love.
 
 I LOVE YOU SO MUCH.
 
@@ -973,30 +833,28 @@ Priyesh ❤️
 
 <h2>20 Things I Love About You ❤️</h2>
 
-<div class="photo-gallery">
-
+<div class="timeline">
 
 <div class="memory-card"><h3>1. Your Smile</h3></div>
 <div class="memory-card"><h3>2. Your Eyes</h3></div>
-<div class="memory-card"><h3>3. Your Kindness</h3></div>
-<div class="memory-card"><h3>4. Your Voice</h3></div>
-<div class="memory-card"><h3>5. Your Innocence</h3></div>
-<div class="memory-card"><h3>6. Your Caring Nature</h3></div>
-<div class="memory-card"><h3>7. Your Beautiful Heart</h3></div>
-<div class="memory-card"><h3>8. Your Positivity</h3></div>
+<div class="memory-card"><h3>3. Your Caring Nature</h3></div>
+<div class="memory-card"><h3>4. Your Innocence</h3></div>
+<div class="memory-card"><h3>5. Your Voice</h3></div>
+<div class="memory-card"><h3>6. Your Kindness</h3></div>
+<div class="memory-card"><h3>7. Your Positivity</h3></div>
+<div class="memory-card"><h3>8. Your Love</h3></div>
 <div class="memory-card"><h3>9. Your Happiness</h3></div>
-<div class="memory-card"><h3>10. Your Style</h3></div>
-<div class="memory-card"><h3>11. Your Confidence</h3></div>
-<div class="memory-card"><h3>12. Your Cuteness</h3></div>
-<div class="memory-card"><h3>13. Your Love</h3></div>
-<div class="memory-card"><h3>14. Your Support</h3></div>
+<div class="memory-card"><h3>10. Your Confidence</h3></div>
+<div class="memory-card"><h3>11. Your Cuteness</h3></div>
+<div class="memory-card"><h3>12. Your Intelligence</h3></div>
+<div class="memory-card"><h3>13. Your Beautiful Heart</h3></div>
+<div class="memory-card"><h3>14. Your Strength</h3></div>
 <div class="memory-card"><h3>15. Your Laugh</h3></div>
-<div class="memory-card"><h3>16. Your Strength</h3></div>
-<div class="memory-card"><h3>17. Your Soul</h3></div>
-<div class="memory-card"><h3>18. Your Dreams</h3></div>
-<div class="memory-card"><h3>19. Your Presence</h3></div>
+<div class="memory-card"><h3>16. Your Support</h3></div>
+<div class="memory-card"><h3>17. Your Dreams</h3></div>
+<div class="memory-card"><h3>18. Your Presence</h3></div>
+<div class="memory-card"><h3>19. The Way You Care</h3></div>
 <div class="memory-card"><h3>20. Everything About You ❤️</h3></div>
-
 
 </div>
 
@@ -1009,56 +867,9 @@ Priyesh ❤️
 
 <div class="lightbox" id="lightbox">
 
-<span class="close"
-onclick="closeImage()">
-
-×
-
-</span>
+<span class="close" onclick="closeImage()">×</span>
 
 <img id="lightbox-img">
-
-</div>
-
-
-
-
-<!-- POPUP MESSAGE -->
-
-<div class="popup" id="popup">
-
-<div class="popup-box">
-
-<h2>Happy Birthday My Love ❤️</h2>
-
-<br>
-
-<p>
-
-You are one of the best things that ever happened to me.
-
-Thank you for making life so beautiful and meaningful.
-
-I promise to celebrate every smile, every achievement and every beautiful moment of your life.
-
-Happy Birthday Princess.
-
-May God bless you always.
-
-I LOVE YOU SO MUCH ❤️
-
-</p>
-
-<br>
-
-<button class="btn"
-onclick="closeWish()">
-
-Close
-
-</button>
-
-</div>
 
 </div>
 
@@ -1069,9 +880,7 @@ Close
 
 <div class="music-player" id="player">
 
-
 <img src="./IMG_20260629_111004.jpg">
-
 
 <div>
 
@@ -1079,26 +888,19 @@ Close
 
 <br>
 
-<small>
-
-Playing For My Princess ❤️
-
-</small>
+<small>Playing For My Princess ❤️</small>
 
 </div>
 
-
 <button class="btn"
-style="width:auto;padding:10px 15px;"
+style="width:auto;padding:10px 18px;"
 onclick="toggleMusic()">
 
-▶️
+▶
 
 </button>
 
-
 </div>
-
 
 
 <audio id="music" loop>
@@ -1115,11 +917,10 @@ type="audio/mpeg">
 
 <footer
 style="
-padding:80px 20px;
+padding:80px 25px;
 text-align:center;
 line-height:2;
 font-size:22px;
-text-shadow:0 0 20px hotpink;
 ">
 
 Forever & Always ❤️
@@ -1127,6 +928,10 @@ Forever & Always ❤️
 <br><br>
 
 Happy Birthday To The Most Beautiful Girl In My World.
+
+<br><br>
+
+Thank You For Being The Best Thing That Ever Happened To Me.
 
 <br><br>
 
@@ -1144,7 +949,21 @@ Made With Endless Love By
 <script>
 
 
-/* COUNTDOWN */
+/* LOADER */
+
+window.onload = function(){
+
+setTimeout(function(){
+
+document.getElementById("loader").style.display="none";
+
+},2500);
+
+};
+
+
+
+/* COUNTDOWN TIMER */
 
 const birthdayDate =
 new Date("July 20, 2026 00:00:00");
@@ -1153,22 +972,23 @@ new Date("July 20, 2026 00:00:00");
 setInterval(()=>{
 
 const now = new Date();
-
 const diff = birthdayDate - now;
+
 
 if(diff < 0){
 
 document.getElementById("countdown").innerHTML =
-"🎉 HAPPY BIRTHDAY MY LOVE ❤️";
+"🎉 HAPPY BIRTHDAY MY LOVE";
 
 return;
 
 }
 
+
 const days =
 Math.floor(diff/(1000*60*60*24));
 
-const hrs =
+const hours =
 Math.floor((diff%(1000*60*60*24))/(1000*60*60));
 
 const mins =
@@ -1180,14 +1000,15 @@ Math.floor((diff%(1000*60))/1000);
 
 document.getElementById("countdown").innerHTML =
 
-`${days} Days ${hrs} Hours ${mins} Minutes ${sec} Seconds`;
+`${days} Days ${hours} Hours ${mins} Minutes ${sec} Seconds`;
 
 },1000);
 
 
 
 
-/* MUSIC PLAYER */
+
+/* MUSIC */
 
 const music =
 document.getElementById("music");
@@ -1196,16 +1017,36 @@ const player =
 document.getElementById("player");
 
 
+function openWish(){
+
+music.play();
+
+player.classList.add("playing");
+
+window.scrollTo({
+
+top:document.body.scrollHeight/4,
+
+behavior:'smooth'
+
+});
+
+}
+
+
+
 function toggleMusic(){
 
 if(music.paused){
 
 music.play();
+
 player.classList.add("playing");
 
 }else{
 
 music.pause();
+
 player.classList.remove("playing");
 
 }
@@ -1214,28 +1055,8 @@ player.classList.remove("playing");
 
 
 
-/* POPUP */
 
-function openWish(){
-
-document.getElementById("popup").style.display = "flex";
-
-music.play();
-
-player.classList.add("playing");
-
-}
-
-
-function closeWish(){
-
-document.getElementById("popup").style.display = "none";
-
-}
-
-
-
-/* PHOTO LIGHTBOX */
+/* LIGHTBOX */
 
 function openImage(src){
 
@@ -1254,23 +1075,32 @@ document.getElementById("lightbox").style.display="none";
 
 
 
-/* SURPRISE BUTTON */
 
-function showLove(){
+/* SUBTLE FLOATING HEART */
 
-for(let i=0;i<100;i++){
+setInterval(()=>{
 
-let heart =
-document.createElement("div");
+let heart = document.createElement("div");
 
-heart.className = "heart";
+heart.innerHTML="❤";
 
-heart.innerHTML =
-["❤️","💕","💖","💘","✨"]
-[Math.floor(Math.random()*5)];
+heart.style.position="fixed";
+heart.style.bottom="-20px";
+heart.style.right="15px";
+heart.style.fontSize="20px";
+heart.style.opacity=".6";
+heart.style.zIndex="999";
 
-heart.style.left =
-Math.random()*100+"vw";
+heart.animate([
+
+{transform:"translateY(0px)",opacity:0.6},
+
+{transform:"translateY(-180px)",opacity:0}
+
+],
+
+{duration:5000});
+
 
 document.body.appendChild(heart);
 
@@ -1278,80 +1108,9 @@ setTimeout(()=>{
 
 heart.remove();
 
-},8000);
+},5000);
 
-}
-
-
-alert(
-
-"I LOVE YOU SO MUCH SUMAN ❤️\n\n" +
-
-"Happy Birthday Princess.\n\n" +
-
-"May all your dreams come true."
-
-);
-
-}
-
-
-
-
-/* FLOATING HEARTS */
-
-setInterval(()=>{
-
-let heart =
-document.createElement("div");
-
-heart.className="heart";
-
-heart.innerHTML =
-["❤️","💕","💖"]
-[Math.floor(Math.random()*3)];
-
-heart.style.left =
-Math.random()*100+"vw";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-
-heart.remove();
-
-},8000);
-
-},600);
-
-
-
-
-/* FALLING ROSE PETALS */
-
-setInterval(()=>{
-
-let petal =
-document.createElement("div");
-
-petal.className="petal";
-
-petal.innerHTML =
-["🌹","🌸","🌺"]
-[Math.floor(Math.random()*3)];
-
-petal.style.left =
-Math.random()*100+"vw";
-
-document.body.appendChild(petal);
-
-setTimeout(()=>{
-
-petal.remove();
-
-},10000);
-
-},1200);
+},5000);
 
 
 
@@ -1359,7 +1118,3 @@ petal.remove();
 
 </body>
 </html>
-
-
-
-   
